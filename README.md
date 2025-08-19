@@ -19,10 +19,8 @@ Key features:
 - `origin_sim/` – Simulation-oriented design files.
 - `origin_const/` – Channel impairment modules.
 - `originBER_sim/` – BER counting and analysis.
-- `project_1/`, `project_2/` – Experiment-specific implementations.
-- `BER_Compare.py`, `constellation.py`, `real_time_show.py` – Python scripts for post-processing and visualization.
+- `constellation.py`, `real_time_show.py` – Python scripts for post-processing and visualization.
 
-> Note: Large Vivado-generated build artifacts (`.dcp`, `.runs/`, `.jou`, etc.) are excluded via `.gitignore`.
 
 ## 🔹 Dependencies
 - [CHOICE Framework (Chalmers)](https://www.cse.chalmers.se/research/group/vlsi/choice/)  
