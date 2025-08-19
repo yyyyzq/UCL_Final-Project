@@ -1,0 +1,42 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/examples/single/analysis.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/channel/ang_to_iq.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/project_1/awgn_pkg.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/channel/awgn.vhdl" \
+"../../../../origin_sim.srcs/sources_1/new/bps.vhd" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/examples/single/channel.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/uart/communication.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/examples/single/control.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/receiver/demod_16QAM.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/receiver/demod_256QAM.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/receiver/demod_64QAM.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/receiver/demod_BPSK.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/receiver/demod_QPSK.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/receiver/demodulator.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/examples/single/dsp.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/analysis/error_counter.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/examples/single/memory_params.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/examples/dual/memory_results.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/transmitter/mod_16QAM.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/transmitter/mod_256QAM.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/transmitter/mod_64QAM.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/transmitter/mod_BPSK.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/transmitter/mod_QPSK.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/transmitter/modulator.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/project_1/phase_noise_pkg.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/channel/phase_noise.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/examples/single/receiver.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/misc/reset_sync.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/transmitter/rng.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/uart/rx.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/examples/single/system.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/examples/single/top.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/examples/single/transmitter.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/uart/tx.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/uart/uart.vhdl" \
+"../../../../origin_sim.srcs/sources_1/imports/choice/src/transmitter/xorshift.vhdl" \
+"../../../../origin_sim.srcs/sources_1/new/tb_top.vhd" \
+
+# Do not sort compile order
+nosort

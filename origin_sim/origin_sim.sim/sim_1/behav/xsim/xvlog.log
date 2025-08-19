@@ -1,0 +1,16 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/12097/Desktop/UCL/Final Project/origin_sim/origin_sim.srcs/sources_1/imports/choice/ip/gng/rtl/gng.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module gng
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/12097/Desktop/UCL/Final Project/origin_sim/origin_sim.srcs/sources_1/imports/choice/ip/gng/rtl/gng_coef.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module gng_coef
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/12097/Desktop/UCL/Final Project/origin_sim/origin_sim.srcs/sources_1/imports/choice/ip/gng/rtl/gng_ctg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module gng_ctg
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/12097/Desktop/UCL/Final Project/origin_sim/origin_sim.srcs/sources_1/imports/choice/ip/gng/rtl/gng_interp.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module gng_interp
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/12097/Desktop/UCL/Final Project/origin_sim/origin_sim.srcs/sources_1/imports/choice/ip/gng/rtl/gng_lzd.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module gng_lzd
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/12097/Desktop/UCL/Final Project/origin_sim/origin_sim.srcs/sources_1/imports/choice/ip/gng/rtl/gng_smul_16_18.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module gng_smul_16_18
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/12097/Desktop/UCL/Final Project/origin_sim/origin_sim.srcs/sources_1/imports/choice/ip/gng/rtl/gng_smul_16_18_sadd_37.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module gng_smul_16_18_sadd_37
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/12097/Desktop/UCL/Final Project/origin_sim/origin_sim.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module glbl

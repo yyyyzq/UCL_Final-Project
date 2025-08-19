@@ -1,0 +1,67 @@
+Vivado Simulator v2024.2.0
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved.
+Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+Running: D:/Xilinx/Vivado/2024.2/bin/unwrapped/win64.o/xelab.exe --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot tb_top_behav xil_defaultlib.tb_top xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling package std.standard
+Compiling package std.textio
+Compiling package ieee.std_logic_1164
+Compiling package ieee.numeric_std
+Compiling package ieee.std_logic_textio
+Compiling package std.env
+Compiling package ieee.math_real
+Compiling package xil_defaultlib.awgn_pkg
+Compiling package xil_defaultlib.phase_noise_pkg
+Compiling package vl.vl_types
+Compiling module xil_defaultlib.glbl
+Compiling architecture arch of entity xil_defaultlib.reset_sync [reset_sync_default]
+Compiling architecture arch of entity xil_defaultlib.tx [tx_default]
+Compiling architecture arch of entity xil_defaultlib.rx [rx_default]
+Compiling architecture arch of entity xil_defaultlib.uart [\uart(baudrate=115200)\]
+Compiling architecture arch of entity xil_defaultlib.communication [communication_default]
+Compiling architecture arch of entity xil_defaultlib.memory_params [memory_params_default]
+Compiling architecture arch of entity xil_defaultlib.memory_results [memory_results_default]
+Compiling architecture arch of entity xil_defaultlib.control [control_default]
+Compiling architecture arch of entity xil_defaultlib.xorshift [\xorshift(seed="1010010101100010...]
+Compiling architecture arch of entity xil_defaultlib.rng [\rng(bits=8)(0,63)\]
+Compiling architecture arch of entity xil_defaultlib.mod_16QAM [\mod_16QAM(max_amp=0.5)\]
+Compiling architecture arch of entity xil_defaultlib.modulator [\modulator(mod_bits=4,mod_type="...]
+Compiling architecture arch of entity xil_defaultlib.transmitter [\transmitter(max_amp=0.5,mod_typ...]
+Compiling module xil_defaultlib.gng_ctg(INIT_Z1=64'b100100011101...
+Compiling module xil_defaultlib.gng_lzd
+Compiling module xil_defaultlib.gng_coef
+Compiling module xil_defaultlib.gng_smul_16_18_sadd_37
+Compiling module xil_defaultlib.gng_smul_16_18
+Compiling module xil_defaultlib.gng_interp
+Compiling module xil_defaultlib.gng(INIT_Z1=64'b1001000111011001...
+Compiling module xil_defaultlib.gng_ctg(INIT_Z1=64'b110010000000...
+Compiling module xil_defaultlib.gng(INIT_Z1=64'b1100100000001100...
+Compiling module xil_defaultlib.gng_ctg(INIT_Z1=64'b010000110000...
+Compiling module xil_defaultlib.gng(INIT_Z1=64'b0100001100000111...
+Compiling module xil_defaultlib.gng_ctg(INIT_Z1=64'b111100000010...
+Compiling module xil_defaultlib.gng(INIT_Z1=64'b1111000000101000...
+Compiling architecture arch of entity xil_defaultlib.awgn [\awgn(par=2,bits=8)\]
+Compiling architecture arch of entity xil_defaultlib.ang_to_iq [\ang_to_iq(width=16,angle_width=...]
+Compiling module xil_defaultlib.gng_ctg(INIT_Z1=64'b100001010111...
+Compiling module xil_defaultlib.gng(INIT_Z1=64'b1000010101111001...
+Compiling module xil_defaultlib.gng_ctg(INIT_Z1=64'b100010000000...
+Compiling module xil_defaultlib.gng(INIT_Z1=64'b1000100000001110...
+Compiling architecture arch of entity xil_defaultlib.phase_noise [\phase_noise(par=2,bits=8)\]
+Compiling architecture arch of entity xil_defaultlib.channel [\channel(bits=8)\]
+Compiling architecture arch of entity xil_defaultlib.dsp [\dsp(bits=8)\]
+Compiling architecture rtl of entity xil_defaultlib.bps [\bps(phases=16,winlen=32)\]
+Compiling architecture arch of entity xil_defaultlib.demod_16QAM [\demod_16QAM(max_amp=0.5)\]
+Compiling architecture arch of entity xil_defaultlib.demodulator [\demodulator(mod_bits=4,mod_type...]
+Compiling architecture arch of entity xil_defaultlib.receiver [\receiver(mod_bits=4,mod_type="1...]
+Compiling architecture arch of entity xil_defaultlib.system [\system(mod_type="16QAM",mod_bit...]
+Compiling architecture arch of entity xil_defaultlib.error_counter [\error_counter(bits=8,bits_cnt_w...]
+Compiling architecture arch of entity xil_defaultlib.analysis [\analysis(bits=8,bits_cnt_width=...]
+Compiling architecture arch of entity xil_defaultlib.top [top_default]
+Compiling architecture behavior of entity xil_defaultlib.tb_top
+Built simulation snapshot tb_top_behav
