@@ -1,0 +1,29 @@
+#-----------------------------------------------------------
+# Vivado v2024.2 (64-bit)
+# SW Build 5239630 on Fri Nov 08 22:35:27 MST 2024
+# IP Build 5239520 on Sun Nov 10 16:12:51 MST 2024
+# SharedData Build 5239561 on Fri Nov 08 14:39:27 MST 2024
+# Start of session at: Tue Jul 29 23:17:32 2025
+# Process ID         : 29960
+# Current directory  : C:/Users/12097/Desktop/UCL/Final Project/originBER_sim
+# Command line       : vivado.exe -gui_launcher_event rodinguilauncherevent7696 C:\Users\12097\Desktop\UCL\Final Project\originBER_sim\originBER_sim.xpr
+# Log file           : C:/Users/12097/Desktop/UCL/Final Project/originBER_sim/vivado.log
+# Journal file       : C:/Users/12097/Desktop/UCL/Final Project/originBER_sim\vivado.jou
+# Running On         : LAPTOP-C6J8EKUI
+# Platform           : Windows Server 2016 or Windows 10
+# Operating System   : 26100
+# Processor Detail   : Intel(R) Core(TM) i7-10875H CPU @ 2.30GHz
+# CPU Frequency      : 2304 MHz
+# CPU Physical cores : 8
+# CPU Logical cores  : 16
+# Host memory        : 16953 MB
+# Swap memory        : 11811 MB
+# Total Virtual      : 28764 MB
+# Available Virtual  : 14713 MB
+#-----------------------------------------------------------
+start_gui
+open_project {C:/Users/12097/Desktop/UCL/Final Project/originBER_sim/originBER_sim.xpr}
+update_compile_order -fileset sources_1
+launch_simulation
+source tb_top_ber_comparison.tcl
+close_sim

@@ -1,0 +1,15 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../originBER_sim.srcs/sources_1/imports/sources_1/imports/choice/ip/gng/rtl/gng.v" \
+"../../../../originBER_sim.srcs/sources_1/imports/sources_1/imports/choice/ip/gng/rtl/gng_coef.v" \
+"../../../../originBER_sim.srcs/sources_1/imports/sources_1/imports/choice/ip/gng/rtl/gng_ctg.v" \
+"../../../../originBER_sim.srcs/sources_1/imports/sources_1/imports/choice/ip/gng/rtl/gng_interp.v" \
+"../../../../originBER_sim.srcs/sources_1/imports/sources_1/imports/choice/ip/gng/rtl/gng_lzd.v" \
+"../../../../originBER_sim.srcs/sources_1/imports/sources_1/imports/choice/ip/gng/rtl/gng_smul_16_18.v" \
+"../../../../originBER_sim.srcs/sources_1/imports/sources_1/imports/choice/ip/gng/rtl/gng_smul_16_18_sadd_37.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort
