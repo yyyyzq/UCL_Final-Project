@@ -1,0 +1,96 @@
+Copyright 1986-2022 Xilinx, Inc. All Rights Reserved. Copyright 2022-2024 Advanced Micro Devices, Inc. All Rights Reserved.
+-----------------------------------------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2024.2 (win64) Build 5239630 Fri Nov 08 22:35:27 MST 2024
+| Date         : Wed Jul 30 15:56:48 2025
+| Host         : LAPTOP-C6J8EKUI running 64-bit major release  (build 9200)
+| Command      : report_methodology -file top_methodology_drc_routed.rpt -pb top_methodology_drc_routed.pb -rpx top_methodology_drc_routed.rpx
+| Design       : top
+| Device       : xc7k325tffg900-2
+| Speed File   : -2
+| Design State : Fully Routed
+-----------------------------------------------------------------------------------------------------------------------------------------------
+
+Report Methodology
+
+Table of Contents
+-----------------
+1. REPORT SUMMARY
+2. REPORT DETAILS
+
+1. REPORT SUMMARY
+-----------------
+            Netlist: netlist
+          Floorplan: design_1
+      Design limits: <entire design considered>
+             Max checks: <unlimited>
+             Checks found: 9
++---------+----------+--------------------------------------------+--------+
+| Rule    | Severity | Description                                | Checks |
++---------+----------+--------------------------------------------+--------+
+| LUTAR-1 | Warning  | LUT drives async reset alert               | 2      |
+| SYNTH-6 | Warning  | Timing of a RAM block might be sub-optimal | 7      |
++---------+----------+--------------------------------------------+--------+
+
+2. REPORT DETAILS
+-----------------
+LUTAR-1#1 Warning
+LUT drives async reset alert  
+LUT cell control_inst/communication_inst/led_rst_OBUF_inst_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) system_inst/transmitter_inst/rng_inst/one_gen.bin_reg[0]/CLR,
+system_inst/transmitter_inst/rng_inst/one_gen.bin_reg[1]/CLR,
+system_inst/transmitter_inst/rng_inst/one_gen.bin_reg[2]/CLR,
+system_inst/transmitter_inst/rng_inst/one_gen.bin_reg[3]/CLR,
+system_inst/transmitter_inst/rng_inst/one_gen.bin_reg[4]/CLR,
+system_inst/transmitter_inst/rng_inst/one_gen.bin_reg[5]/CLR,
+system_inst/transmitter_inst/rng_inst/one_gen.bin_reg[6]/CLR,
+system_inst/transmitter_inst/rng_inst/one_gen.bin_reg[7]/CLR,
+system_inst/transmitter_inst/rng_inst/one_gen.cnt_reg[0]/CLR,
+system_inst/transmitter_inst/rng_inst/one_gen.cnt_reg[1]/CLR,
+system_inst/transmitter_inst/rng_inst/one_gen.cnt_reg[2]/CLR,
+system_inst/transmitter_inst/rng_inst/one_gen.en_reg/PRE,
+system_inst/transmitter_inst/rng_inst/one_gen.rst_flag_reg_inv/CLR,
+system_inst/transmitter_inst/rng_inst/one_gen.valid_out_reg/CLR,
+system_inst/transmitter_inst/rng_inst/xorshifts_gen[0].xorshift_gen/state_reg[9]/CLR
+ (the first 15 of 241 listed). The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+LUTAR-1#2 Warning
+LUT drives async reset alert  
+LUT cell reset_sync_inst/rst_sync_i_1, with 2 or more inputs, drives asynchronous preset/clear pin(s) reset_sync_inst/rst_reg/PRE, reset_sync_inst/rst_sync_reg/PRE. The LUT may glitch and trigger an unexpected reset, even if it is a properly timed path.
+Related violations: <none>
+
+SYNTH-6#1 Warning
+Timing of a RAM block might be sub-optimal  
+The timing for the instance c1_reg[0]_i_1, implemented as a RAM block, might be sub-optimal as no output register was merged into the block.
+Related violations: <none>
+
+SYNTH-6#2 Warning
+Timing of a RAM block might be sub-optimal  
+The timing for the instance c1_reg[0]_i_1__0, implemented as a RAM block, might be sub-optimal as no output register was merged into the block.
+Related violations: <none>
+
+SYNTH-6#3 Warning
+Timing of a RAM block might be sub-optimal  
+The timing for the instance sel_0, implemented as a RAM block, might be sub-optimal as no output register was merged into the block.
+Related violations: <none>
+
+SYNTH-6#4 Warning
+Timing of a RAM block might be sub-optimal  
+The timing for the instance sel_0__0, implemented as a RAM block, might be sub-optimal as no output register was merged into the block.
+Related violations: <none>
+
+SYNTH-6#5 Warning
+Timing of a RAM block might be sub-optimal  
+The timing for the instance sel_0__1, implemented as a RAM block, might be sub-optimal as no output register was merged into the block.
+Related violations: <none>
+
+SYNTH-6#6 Warning
+Timing of a RAM block might be sub-optimal  
+The timing for the instance sel_0__2, implemented as a RAM block, might be sub-optimal as no output register was merged into the block.
+Related violations: <none>
+
+SYNTH-6#7 Warning
+Timing of a RAM block might be sub-optimal  
+The timing for the instance system_inst/receiver_inst/constellation_recorder/ram_reg, implemented as a RAM block, might be sub-optimal as no output register was merged into the block.
+Related violations: <none>
+
+

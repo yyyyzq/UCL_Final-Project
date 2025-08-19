@@ -1,0 +1,169 @@
+-------------------------------------------------------------------------------
+-- Title      : Receiver for a Single Polarization Setup with Constellation Recorder
+-- Project    : CHOICE
+-------------------------------------------------------------------------------
+-- File       : receiver.vhdl
+-- Author     : Erik Börjeson  <erikbor@chalmers.se>
+-- Company    : Chalmers University of Technology
+-- Created    : 2022-02-28
+-- Last update: 2022-03-01
+-- Standard   : VHDL'93/02
+-------------------------------------------------------------------------------
+-- Description:
+--
+-- Receiver for single polarization setup, with added constellation recorder
+-- for I/Q data capture.
+--
+-------------------------------------------------------------------------------
+-- Copyright (c) 2019 Erik Börjeson
+-------------------------------------------------------------------------------
+-- Revisions  :
+-- Date        Version  Author  Description
+-- 2022-02-28  1.0      erikbor Created
+-------------------------------------------------------------------------------
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.math_real.all;
+
+entity receiver is
+  generic (PAR      : positive              := 2;
+           WIDTH    : positive              := 8;
+           MOD_BITS : positive              := 4;
+           MOD_TYPE : string                := "16QAM";
+           MAX_AMP  : real range 0.0 to 1.0 := 1.0;
+           -- 星座图recorder配置
+           CONST_DEPTH : positive           := 256);
+  port (clk       : in  std_logic;
+        rst       : in  std_logic;
+        i_in      : in  std_logic_vector(PAR*WIDTH-1 downto 0);
+        q_in      : in  std_logic_vector(PAR*WIDTH-1 downto 0);
+        bits_in   : in  std_logic_vector(PAR*MOD_BITS-1 downto 0);
+        valid_in  : in  std_logic;
+        demod_out : out std_logic_vector(PAR*MOD_BITS-1 downto 0);
+        bits_out  : out std_logic_vector(PAR*MOD_BITS-1 downto 0);
+        valid_out : out std_logic;
+        -- 星座图recorder接口
+        const_trig : in  std_logic;
+        const_addr : in  std_logic_vector(integer(ceil(log2(real(CONST_DEPTH))))-1 downto 0);
+        const_data : out std_logic_vector(15 downto 0);
+        const_done : out std_logic);
+end entity receiver;
+
+architecture arch of receiver is
+
+  constant BITS : positive := PAR*MOD_BITS;
+
+  component dsp is
+    generic(PAR   : positive;
+            WIDTH : positive;
+            BITS  : positive);
+    port (clk       : in  std_logic;
+          rst       : in  std_logic;
+          i_in      : in  std_logic_vector(PAR*WIDTH-1 downto 0);
+          q_in      : in  std_logic_vector(PAR*WIDTH-1 downto 0);
+          bits_in   : in  std_logic_vector(BITS-1 downto 0);
+          valid_in  : in  std_logic;
+          i_out     : out std_logic_vector(PAR*WIDTH-1 downto 0);
+          q_out     : out std_logic_vector(PAR*WIDTH-1 downto 0);
+          bits_out  : out std_logic_vector(BITS-1 downto 0);
+          valid_out : out std_logic);
+  end component dsp;
+
+  component demodulator is
+    generic (PAR      : positive;
+             MOD_BITS : positive;
+             MOD_TYPE : string;
+             WIDTH    : positive;
+             MAX_AMP  : real range 0.0 to 1.0);
+    port (clk       : in  std_logic;
+          rst       : in  std_logic;
+          i_in      : in  std_logic_vector(PAR*WIDTH-1 downto 0);
+          q_in      : in  std_logic_vector(PAR*WIDTH-1 downto 0);
+          bits_in   : in  std_logic_vector(PAR*MOD_BITS-1 downto 0);
+          valid_in  : in  std_logic;
+          demod_out : out std_logic_vector(PAR*MOD_BITS-1 downto 0);
+          bits_out  : out std_logic_vector(PAR*MOD_BITS-1 downto 0);
+          valid_out : out std_logic);
+  end component demodulator;
+
+  component recorder is
+    generic (WIDTH : positive;
+             DEPTH : positive;
+             MODE  : natural range 0 to 2);
+    port (clk      : in  std_logic;
+          rst      : in  std_logic;
+          en       : in  std_logic;
+          data_in  : in  std_logic_vector(WIDTH-1 downto 0);
+          trig     : in  std_logic;
+          addr     : in  std_logic_vector(integer(ceil(log2(real(DEPTH))))-1 downto 0);
+          data_out : out std_logic_vector(WIDTH-1 downto 0);
+          done     : out std_logic);
+  end component recorder;
+
+  signal i_dsp     : std_logic_vector(PAR*WIDTH-1 downto 0);
+  signal q_dsp     : std_logic_vector(PAR*WIDTH-1 downto 0);
+  signal bits_dsp  : std_logic_vector(BITS-1 downto 0);
+  signal valid_dsp : std_logic;
+
+  -- 星座图recorder信号
+  signal const_data_in : std_logic_vector(15 downto 0);
+  signal const_en      : std_logic;
+
+begin
+
+  dsp_inst : component dsp
+    generic map(PAR   => PAR,
+                WIDTH => WIDTH,
+                BITS  => BITS)
+    port map (clk       => clk,
+              rst       => rst,
+              i_in      => i_in,
+              q_in      => q_in,
+              bits_in   => bits_in,
+              valid_in  => valid_in,
+              i_out     => i_dsp,
+              q_out     => q_dsp,
+              bits_out  => bits_dsp,
+              valid_out => valid_dsp);
+
+  demodulator_inst : component demodulator
+    generic map (PAR      => PAR,
+                 WIDTH    => WIDTH,
+                 MOD_BITS => MOD_BITS,
+                 MOD_TYPE => MOD_TYPE,
+                 MAX_AMP  => MAX_AMP)
+    port map (clk       => clk,
+              rst       => rst,
+              i_in      => i_dsp,
+              q_in      => q_dsp,
+              bits_in   => bits_dsp,
+              valid_in  => valid_dsp,
+              demod_out => demod_out,
+              bits_out  => bits_out,
+              valid_out => valid_out);
+
+  -- 星座图数据准备
+  -- 取第一个并行通道的I/Q数据 (8位I + 8位Q = 16位)
+--  const_data_in <= x"1234";  -- 强制测试数据
+  const_data_in <= i_dsp(WIDTH-1 downto 0) & q_dsp(WIDTH-1 downto 0);
+  const_en      <= valid_dsp;
+
+  -- 星座图recorder实例
+  constellation_recorder : component recorder
+    generic map (
+      WIDTH => 16,           -- I(8位) + Q(8位) = 16位
+      DEPTH => CONST_DEPTH,  -- 可配置深度，默认1024
+      MODE  => 1             -- 触发后采集模式
+    )
+    port map (
+      clk      => clk,
+      rst      => rst,
+      en       => const_en,      -- DSP数据有效时使能const_en
+      data_in  => const_data_in, -- I/Q组合数据
+      trig     => const_trig,    -- 外部触发信号
+      addr     => const_addr,    -- 读取地址
+      data_out => const_data,    -- 读取数据
+      done     => const_done     -- 采集完成标志
+    );
+
+end architecture arch;
